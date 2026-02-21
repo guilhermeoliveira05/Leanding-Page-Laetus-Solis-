@@ -349,6 +349,14 @@ nav {
 
 }
 
+.mobile-menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #0d5c63;
+}
+
+
 @media (max-width: 768px) {
 
     .section-padding {
