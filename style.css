@@ -393,15 +393,15 @@ nav {
         grid-template-columns: 1fr;
     }
 }
-/* ================= MENU MOBILE ================= */
+/* ================= MENU MOBILE ESTILIZADO ================= */
 
 .mobile-overlay {
     position: fixed;
     top: 0;
-    right: -100%; /* ESCONDIDO FORA DA TELA */
+    right: -100%;
     width: 100%;
     height: 100vh;
-    background: var(--azul-petroleo);
+    background: #0d5c63; /* ajuste para sua cor principal */
     z-index: 2000;
 
     display: flex;
@@ -412,7 +412,32 @@ nav {
     transition: right 0.4s ease;
 }
 
-/* Só aparece quando ativado */
 .mobile-overlay.active {
     right: 0;
 }
+
+/* Links do menu mobile */
+.mobile-overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-overlay li {
+    margin: 20px 0;
+}
+
+.mobile-overlay a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.mobile-overlay a:hover {
+    color: #f4c430;
+}
+
