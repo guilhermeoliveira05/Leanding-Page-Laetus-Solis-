@@ -2,202 +2,319 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Laetus Solis - Escritório de advocacia com atendimento de alta qualidade e personalizado.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="description" content="Laetus Solis - Liga Acadêmica de Direito comprometida com a defesa das minorias e a promoção da dignidade humana.">
     <title>Laetus Solis | Inteligência Jurídica</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
 
+    <!-- ══ HEADER ══════════════════════════════════════════ -->
     <header id="header">
-        <nav class="container">
-            <div class="logo">
-                <span class="logo-sun">☀️</span>
-                <span class="logo-text">Laetus Solis</span>
-            </div>
+        <nav class="container nav-inner">
+            <a href="#home" class="logo">
+                <img src="logo.jpeg" alt="Laetus Solis">
+                <div class="logo-text">
+                    <strong>Laetus Solis</strong>
+                    <small>Liga Acadêmica de Direito</small>
+                </div>
+            </a>
 
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#areas">Áreas</a></li>
                 <li><a href="#equipe">Equipe</a></li>
-                <li><a href="#contato" class="btn-nav">Fale com a gente</a></li>
+                <li><a href="#contato" class="nav-cta">Contato</a></li>
             </ul>
 
-            <div class="mobile-menu-icon" id="menu-toggle">
-                <i data-lucide="menu"></i>
-            </div>
+            <button class="burger" id="burger" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
-
-        <div class="mobile-overlay" id="mobile-menu">
-            <div class="close-menu" id="close-menu"><i data-lucide="x"></i></div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#equipe">Equipe</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </div>
     </header>
 
+    <!-- Mobile Drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+        <div class="drawer-inner">
+            <button class="drawer-close" id="drawer-close" aria-label="Fechar menu">
+                <i data-lucide="x"></i>
+            </button>
+            <nav class="drawer-nav">
+                <a href="#home"    class="drawer-link" onclick="closeDrawer()">Início</a>
+                <a href="#sobre"   class="drawer-link" onclick="closeDrawer()">Sobre</a>
+                <a href="#areas"   class="drawer-link" onclick="closeDrawer()">Áreas</a>
+                <a href="#equipe"  class="drawer-link" onclick="closeDrawer()">Equipe</a>
+                <a href="#contato" class="drawer-link drawer-cta" onclick="closeDrawer()">Contato</a>
+            </nav>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+    <!-- ══ HERO ════════════════════════════════════════════ -->
     <section id="home" class="hero">
+        <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=85&auto=format&fit=crop')"></div>
         <div class="hero-overlay"></div>
-        <div class="container hero-content hidden">
-            <h1>Defendendo direitos, fortalecendo vozes, transformando realidades.</h1>
-            <p>Unindo estudantes de Direito para promover conhecimento, justiça e impacto social.</p>
-            <div class="hero-btns">
-                <a href="#contato" class="btn-main">Contato</a>
-                <a href="#servicos" class="btn-secondary">Nossas Áreas</a>
+        <div class="container hero-content">
+            <span class="hero-badge reveal">Liga Acadêmica de Direito</span>
+            <h1 class="reveal delay-1">
+                Defendendo direitos,<br>
+                <em>transformando</em> realidades.
+            </h1>
+            <p class="reveal delay-2">
+                Unindo estudantes de Direito para promover conhecimento,<br class="desktop-br"> justiça e impacto social nas questões que mais importam.
+            </p>
+            <div class="hero-actions reveal delay-3">
+                <a href="#contato" class="btn-primary">Fale com a gente</a>
+                <a href="#areas"   class="btn-ghost">Nossas Áreas</a>
             </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Role</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <section id="sobre" class="sobre section-padding container">
-        <div class="sobre-grid">
-            <div class="sobre-text hidden-left">
-                <span class="subtitle">QUEM SOMOS</span>
-                <h2>Compromisso com a lei, paixão pela mudança</h2>
-                <p>A Liga Acadêmica Laetos Solis nasce como um espaço de estudo, diálogo e ação voltado à defesa das minorias e à promoção da dignidade humana. </p>
+    <!-- ══ SOBRE ════════════════════════════════════════════ -->
+    <section id="sobre" class="sobre section-pad">
+        <div class="container sobre-grid">
+            <div class="sobre-visual reveal from-left">
+                <div class="logo-showcase">
+                    <img src="logo.jpeg" alt="Laetus Solis">
+                </div>
+                <div class="sobre-deco-ring"></div>
+                <div class="sobre-deco-bar"></div>
+            </div>
+            <div class="sobre-text reveal from-right">
+                <span class="eyebrow">Quem somos</span>
+                <h2>Compromisso com a lei,<br><em>paixão pela mudança</em></h2>
+                <p>A Liga Acadêmica Laetus Solis nasce como um espaço de estudo, diálogo e ação voltado à defesa das minorias e à promoção da dignidade humana.</p>
                 <p>Nosso propósito é fortalecer a consciência crítica dos estudantes, incentivando a produção de conhecimento e a atuação responsável diante das desigualdades sociais.</p>
-            </div>
-            <div class="sobre-img hidden-right">
-                <img src="logo.jpeg" alt="Equipe Laetus Solis" class="main-img">
+                <div class="sobre-stats">
+                    <div class="stat">
+                        <strong>5+</strong>
+                        <small>Membros ativos</small>
+                    </div>
+                    <div class="stat">
+                        <strong>8</strong>
+                        <small>Áreas de atuação</small>
+                    </div>
+                    <div class="stat">
+                        <strong>2025</strong>
+                        <small>Fundação</small>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="servicos" class="servicos section-padding bg-light">
+    <!-- ══ ÁREAS ════════════════════════════════════════════ -->
+    <section id="areas" class="areas section-pad">
         <div class="container">
-            <div class="section-header hidden">
-                <span class="subtitle">ESPECIALIDADES</span>
+            <div class="section-head center reveal">
+                <span class="eyebrow">Especialidades</span>
                 <h2>Áreas de Atuação</h2>
+                <p class="section-lead">Atuamos nas fronteiras do direito onde a mudança social é mais urgente e necessária.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="file-text"></i></div>
+            <div class="areas-grid">
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="shield"></i></div>
+                    <span class="area-num">01</span>
                     <h3>Direitos Humanos e Garantias Fundamentais</h3>
-                    <p>Promovemos a proteção e a efetivação dos direitos básicos assegurados pela Constituição e pelos tratados internacionais.</p>
+                    <p>Proteção e efetivação dos direitos assegurados pela Constituição e tratados internacionais.</p>
                 </div>
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="trending-up"></i></div>
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="users"></i></div>
+                    <span class="area-num">02</span>
                     <h3>Defesa das Minorias e Grupos Vulneráveis</h3>
-                    <p>Atuamos na valorização e na proteção jurídica de grupos historicamente marginalizados.</p>
+                    <p>Valorização e proteção jurídica de grupos historicamente marginalizados.</p>
                 </div>
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="briefcase"></i></div>
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="heart-handshake"></i></div>
+                    <span class="area-num">03</span>
                     <h3>Igualdade de Gênero e Combate à Discriminação</h3>
-                    <p>Defendemos a equidade de oportunidades e o enfrentamento de toda forma de desigualdade de gênero.</p>
+                    <p>Equidade de oportunidades e enfrentamento de toda forma de desigualdade.</p>
                 </div>
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="home"></i></div>
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="rainbow"></i></div>
+                    <span class="area-num">04</span>
                     <h3>Direitos da População LGBTQIA+</h3>
-                    <p>Lutamos pelo respeito, reconhecimento e garantia plena de direitos à diversidade sexual e de gênero.</p>
+                    <p>Respeito, reconhecimento e garantia plena de direitos à diversidade.</p>
                 </div>
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="users"></i></div>
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="globe"></i></div>
+                    <span class="area-num">05</span>
                     <h3>Direitos Raciais e Combate ao Racismo Estrutural</h3>
-                    <p>Trabalhamos pela superação das desigualdades raciais e pela promoção da justiça racial.</p>
+                    <p>Superação das desigualdades raciais e promoção da justiça racial.</p>
                 </div>
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="shield"></i></div>
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="accessibility"></i></div>
+                    <span class="area-num">06</span>
                     <h3>Inclusão Social e Acessibilidade</h3>
-                    <p>Incentivamos políticas e práticas que garantam participação plena e igualdade de acesso a todos.</p>
+                    <p>Políticas que garantam participação plena e igualdade de acesso a todos.</p>
                 </div>
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="shield"></i></div>
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="scale"></i></div>
+                    <span class="area-num">07</span>
                     <h3>Justiça Social e Políticas Públicas</h3>
-                    <p>Estimulamos o debate e a construção de políticas que reduzam desigualdades e promovam dignidade.</p>
+                    <p>Debate e construção de políticas que reduzam desigualdades e promovam dignidade.</p>
                 </div>
-                <div class="service-card hidden-up">
-                    <div class="card-icon"><i data-lucide="shield"></i></div>
+                <div class="area-card reveal">
+                    <div class="area-icon"><i data-lucide="book-open"></i></div>
+                    <span class="area-num">08</span>
                     <h3>Educação em Direitos e Cidadania</h3>
-                    <p>Fomentamos o conhecimento jurídico como ferramenta de conscientização e transformação social.</p>
+                    <p>Conhecimento jurídico como ferramenta de conscientização e transformação social.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="equipe" class="equipe section-padding container">
-        <div class="equipe-header hidden">
-            <div class="equipe-title">
-                <h2>Nossa equipe</h2>
+    <!-- ══ EQUIPE — CARROSSEL ═══════════════════════════════ -->
+    <section id="equipe" class="equipe section-pad">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Pessoas</span>
+                <h2>Nossa Equipe</h2>
+                <p class="section-lead">Comprometidos com a excelência acadêmica e a promoção da justiça em todas as frentes.</p>
             </div>
-            <div class="equipe-intro">
-                <p>Nossos membros são comprometidos com a excelência acadêmica e a promoção da justiça. Buscamos ir além da teoria, atuando com responsabilidade, ética e impacto social em todas as frentes em que nos envolvemos.</p>
-            </div>
-        </div>
 
-        <div class="equipe-grid">
-            <div class="prof-card hidden-up">
-                <div class="prof-img-container"><img src="foto-fernando.jpeg" alt="Advogado"></div>
-                <h3>Fernando Andrade</h3>
-                <span>Presidente</span>
+            <div class="carousel-wrap">
+                <button class="car-btn car-prev" id="car-prev" aria-label="Anterior">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+
+                <div class="carousel-viewport" id="carousel-viewport">
+                    <div class="carousel-track" id="carousel-track">
+
+                        <div class="prof-card">
+                            <div class="prof-photo">
+                                <img src="foto-fernando.jpeg" alt="Fernando Andrade"
+                                     onerror="this.src='';this.parentNode.classList.add('no-photo');this.parentNode.dataset.initials='FA'">
+                            </div>
+                            <h3>Fernando Andrade</h3>
+                            <span>Presidente</span>
+                        </div>
+
+                        <div class="prof-card">
+                            <div class="prof-photo">
+                                <img src="foto-rita.jpeg" alt="Maria Rita Moretti"
+                                     onerror="this.src='';this.parentNode.classList.add('no-photo');this.parentNode.dataset.initials='MR'">
+                            </div>
+                            <h3>Maria Rita Moretti</h3>
+                            <span>Vice-Presidente</span>
+                        </div>
+
+                        <div class="prof-card">
+                            <div class="prof-photo">
+                                <img src="foto-bella.jpeg" alt="Isabella Nunes"
+                                     onerror="this.src='';this.parentNode.classList.add('no-photo');this.parentNode.dataset.initials='IN'">
+                            </div>
+                            <h3>Isabella Nunes</h3>
+                            <span>Primeira Secretária</span>
+                        </div>
+
+                        <div class="prof-card">
+                            <div class="prof-photo">
+                                <img src="foto-giovana.jpeg" alt="Giovanna Chagas"
+                                     onerror="this.src='';this.parentNode.classList.add('no-photo');this.parentNode.dataset.initials='GC'">
+                            </div>
+                            <h3>Giovanna Chagas</h3>
+                            <span>Secretária Geral</span>
+                        </div>
+
+                        <div class="prof-card">
+                            <div class="prof-photo">
+                                <img src="foto-julia.jpeg" alt="Julia Giupponi"
+                                     onerror="this.src='';this.parentNode.classList.add('no-photo');this.parentNode.dataset.initials='JG'">
+                            </div>
+                            <h3>Julia Giupponi</h3>
+                            <span>Secretária Geral</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="car-btn car-next" id="car-next" aria-label="Próximo">
+                    <i data-lucide="chevron-right"></i>
+                </button>
             </div>
-            <div class="prof-card hidden-up">
-                <div class="prof-img-container"> <img src="foto-rita.jpeg" alt="Advogada"></div>
-                <h3>Maria Rita Moretti</h3>
-                <span>Vice presidente</span>
-            </div>
-            <div class="prof-card hidden-up">
-                <div class="prof-img-container"><img src="foto-bella.jpeg" alt="Advogada"></div>
-                <h3>Isabella Nunes</h3>
-                <span>Primeira Secretaria</span>
-            </div>
-            <div class="prof-card hidden-up">
-                <div class="prof-img-container"><img src="foto-giovana.jpeg" alt="Advogado"></div>
-                <h3>Giovanna Chagas</h3>
-                <span>Secretaria geral</span>
-            </div>
-            <div class="prof-card hidden-up">
-                <div class="prof-img-container"><img src="foto-julia.jpeg" alt="Advogado"></div>
-                <h3>Julia Giupponi</h3>
-                <span>Secretaria geral</span>
-            </div>
+
+            <!-- Dots -->
+            <div class="carousel-dots" id="carousel-dots"></div>
         </div>
     </section>
 
-    <section id="contato" class="contato-section section-padding bg-dark">
+    <!-- ══ CONTATO ══════════════════════════════════════════ -->
+    <section id="contato" class="contato section-pad">
         <div class="container contato-grid">
-            <div class="contato-info hidden-left">
-                <h2>Vamos conversar?</h2>
+            <div class="contato-info reveal from-left">
+                <span class="eyebrow eyebrow-light">Contato</span>
+                <h2>Vamos<br>conversar?</h2>
                 <p>Preencha o formulário e nossa equipe entrará em contato o mais breve possível.</p>
-                <div class="info-item">
-                    <i data-lucide="phone"></i>
+
+                <div class="c-item">
+                    <div class="c-icon"><i data-lucide="phone"></i></div>
                     <span>(12) 99638-3951</span>
                 </div>
-                <div class="info-item">
-                    <i data-lucide="mail"></i>
+                <div class="c-item">
+                    <div class="c-icon"><i data-lucide="mail"></i></div>
                     <span>solislaetus@gmail.com</span>
                 </div>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/solislaetus?igsh=MXh4aWJpcm04dnQ0Ng%3D%3D"><i data-lucide="instagram"></i></a>
-                    <a href="#"><i data-lucide="linkedin"></i></a>
-                    <a href="#"><i data-lucide="facebook"></i></a>
+
+                <div class="social-row">
+                    <a href="https://www.instagram.com/solislaetus" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
                 </div>
             </div>
-            <div class="contato-form hidden-right">
-                <form id="form-contato">
-                    <input type="text" placeholder="Seu Nome completo" required>
-                    <input type="email" placeholder="Seu E-mail" required>
-                    <input type="tel" placeholder="Seu WhatsApp">
-                    <textarea placeholder="Como podemos ajudar?" rows="5"></textarea>
-                    <button type="submit" class="btn-main">Enviar Mensagem</button>
-                </form>
-            </div>
+
+            <form class="contato-form reveal from-right" id="form-contato" novalidate>
+                <div class="form-row">
+                    <div class="field">
+                        <label>Nome completo</label>
+                        <input type="text" placeholder="Seu nome" required>
+                    </div>
+                    <div class="field">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>WhatsApp</label>
+                    <input type="tel" placeholder="(00) 00000-0000">
+                </div>
+                <div class="field">
+                    <label>Mensagem</label>
+                    <textarea rows="5" placeholder="Como podemos ajudar?"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensagem</button>
+            </form>
         </div>
     </section>
 
-   
-<footer class="footer-simples">
-    <div class="container">
-        <p>&copy; 2026 Laetus Solis. Todos os direitos reservados.</p>
-    </div>
-</footer>
+    <!-- ══ FOOTER ═══════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-logo">
+                <img src="logo.jpeg" alt="Laetus Solis">
+                <span>Laetus Solis</span>
+            </div>
+            <p>&copy; 2026 Laetus Solis — Liga Acadêmica de Direito.<br class="mobile-br"> Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
